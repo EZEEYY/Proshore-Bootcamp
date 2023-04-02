@@ -2,13 +2,29 @@ import './App.css';
 import React from 'react';
 import Data from './components/first';
 import Third from './components/third';
-
+import { Link, Route,Routes } from 'react-router-dom';
+import Home from './Home';
 function App() {
 
   return (
-    <div className="App">
-      {/*<Data/>*/}
-      <Third/>
+    <div>
+      <ul>
+          <li>
+              <Link to='/'>Home</Link>
+            <li>
+              <Link to='/first'>first</Link>
+            </li>
+            <li>
+              <Link to='/third'>third</Link>
+            </li>
+        </li>
+      </ul>
+
+      <Routes>
+        <Route path='/' element={<Home/>}></Route>
+        <Route path='/first' element={<Data/>}></Route>
+        <Route path='/third' element={<Third/>}></Route>
+      </Routes>
       
     </div>
   );
