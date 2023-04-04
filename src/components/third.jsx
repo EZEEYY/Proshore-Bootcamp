@@ -12,10 +12,20 @@ function Third(){
         })
     },[])
     console.log(product)
-    function filter(){
+    /*function filter(){
         const filtered = product.filter(item=>item.brand===choice)
         productup(filtered)
-    }
+    }*/
+    React.useEffect(() => {
+        if (choice) {
+            const filtered = product.filter((product) =>
+            product.brand.toLowerCase().includes(choice.toLowerCase())
+            );
+            productup(filtered);
+        } else {
+            productup(original);
+        }
+        }, [choice, original]);
     function render(){
         productup(original)
     }
@@ -24,7 +34,7 @@ function Third(){
         <div>
             <div>
                         <input onChange={event=>choiceup(event.target.value)}></input>
-                        <button onClick={filter}>Search</button>
+                        <button >Search</button>
                         <button onClick={render}>Reset</button>
                     <table>
                         <tr>
