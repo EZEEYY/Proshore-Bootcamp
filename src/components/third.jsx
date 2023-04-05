@@ -4,6 +4,8 @@ function Third(){
     const [product,productup] = React.useState([])
     const [original,originalup] = React.useState([])
     const [choice,choiceup] = React.useState()
+    const [selectedProduct, SelectedProductup] = React.useState(null);
+
     const Url ='https://dummyjson.com/products'
     React.useEffect(()=>{
         axios.get(Url).then((response)=>{
@@ -26,16 +28,18 @@ function Third(){
             productup(original);
         }
         }, [choice, original]);
-    function render(){
-        productup(original)
+    function handleproduct(each){
+        console.log(each)
+        SelectedProductup(each)
     }
+    const handleCloseOverlay = () => {
+        SelectedProductup(null);
+    };
     
     return(
         <div>
             <div>
                         <input onChange={event=>choiceup(event.target.value)}></input>
-                        <button >Search</button>
-                        <button onClick={render}>Reset</button>
                     <table>
                         <tr>
                             <th>S.N</th>
@@ -44,14 +48,28 @@ function Third(){
                             <th>Stock</th>
                         </tr>
                         {product.map((each)=>{return(
-                        <tr>
+                        <tr >
                             <th>{each.id}</th>
-                            <th>{each.title}</th>
-                            <th>{each.price}</th>
+                            <th onClick={()=>handleproduct(each)} className='product'>{each.title}</th>
+                            <th>${each.price}</th>
                             <th>{each.stock}</th>
                         </tr>
                         )})}
                 </table>
+            </div>
+            <div>
+
+            {selectedProduct && (
+                <div className="overlay" onClick={handleCloseOverlay}>
+                    <div className="overlay-content">
+                        <h2>{selectedProduct.title}</h2>
+                        <img src={selectedProduct.thumbnail}></img>
+                        <h3>Description:</h3>
+                        <p>{selectedProduct.description}</p>
+
+                    </div>
+                </div>
+            )}
             </div>
         </div>
     )
