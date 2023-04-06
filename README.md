@@ -9,3 +9,12 @@ Assignment-3:
   API: https://dummyjson.com/products
   Try to use the hooks we discussed i.e. useState, useEffect, useRef, useCallback, and Custom Hook.
   Properly structure your code and project according to the topic covered in the previous session.
+  
+    
+Assignment-4:
+    Create react app which contains 3-4 pages
+    Use router to navigate
+    Use context API to change theme to dark mode and back
+    App should consist of a page which displays dynamic data from any public APIs and also add filters to it (Use axios to fetch data)
+    Also use basics hooks
+
