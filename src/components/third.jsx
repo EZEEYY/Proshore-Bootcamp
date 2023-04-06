@@ -1,23 +1,12 @@
 import React from "react";
 import axios from "axios";
+import { useGlobalContext } from "../Data";
 function Third(){
-    const [product,productup] = React.useState([])
-    const [original,originalup] = React.useState([])
+    const {product,productup,original,originalup} = useGlobalContext()
     const [choice,choiceup] = React.useState()
     const [selectedProduct, SelectedProductup] = React.useState(null);
 
-    const Url ='https://dummyjson.com/products'
-    React.useEffect(()=>{
-        axios.get(Url).then((response)=>{
-            productup(response.data.products)
-            originalup(response.data.products)
-        })
-    },[])
     console.log(product)
-    /*function filter(){
-        const filtered = product.filter(item=>item.brand===choice)
-        productup(filtered)
-    }*/
     React.useEffect(() => {
         if (choice) {
             const filtered = product.filter((product) =>

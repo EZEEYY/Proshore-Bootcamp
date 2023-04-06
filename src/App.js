@@ -4,10 +4,12 @@ import Data from './components/first';
 import Third from './components/third';
 import { Link, Route,Routes } from 'react-router-dom';
 import Home from './Home';
+import DarkMode from './components/DarkMode';
+import { useGlobalContext } from './Data';
 function App() {
-
+  const {mode,modeup,Mode} = useGlobalContext()
   return (
-    <div>
+    <div className={`${mode?'darkmode':'lightmode'}`}> 
       <ul>
           <li>
               <Link to='/'>Home</Link>
@@ -17,6 +19,7 @@ function App() {
             <li>
               <Link to='/third'>third</Link>
             </li>
+          <DarkMode/>
         </li>
       </ul>
 

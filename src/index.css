@@ -28,3 +28,17 @@ th, td {
 .product{
     cursor: pointer;
 }
+.lightmode {
+    background-color: #fff;
+    color: #000;
+} 
+.darkmode{
+    
+    background-color: #000;
+    color: #fff;
+}  
+body{
+    margin: 0;
+
+}
+
