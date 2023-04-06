@@ -2,7 +2,7 @@ import React from "react";
 import axios from "axios";
 import { useGlobalContext } from "../Data";
 function Third(){
-    const {product,productup,original,originalup} = useGlobalContext()
+    const {product,productup,original,originalup,mode} = useGlobalContext()
     const [choice,choiceup] = React.useState()
     const [selectedProduct, SelectedProductup] = React.useState(null);
 
@@ -28,7 +28,7 @@ function Third(){
     return(
         <div>
             <div>
-                        <input onChange={event=>choiceup(event.target.value)}></input>
+                        <input onChange={event=>choiceup(event.target.value)} placeholder='search' className="search"></input>
                     <table>
                         <tr>
                             <th>S.N</th>
@@ -50,7 +50,7 @@ function Third(){
 
             {selectedProduct && (
                 <div className="overlay" onClick={handleCloseOverlay}>
-                    <div className="overlay-content">
+                    <div className={`${mode?"overlay-contentdark":"overlay-contentlight"}`}>
                         <h2>{selectedProduct.title}</h2>
                         <img src={selectedProduct.thumbnail}></img>
                         <h3>Description:</h3>

@@ -18,21 +18,36 @@ th, td {
     justify-content: center;
     z-index: 100;
 }
-.overlay-content {
+.overlay-contentlight {
     background-color: white;
     padding: 16px;
     max-width: 400px;
     max-height: 400px;
     overflow: auto;
+    background-color: #fff;
+    color: #000;
+} 
+.overlay-contentdark {
+    background-color: white;
+    padding: 16px;
+    max-width: 400px;
+    max-height: 400px;
+    overflow: auto;
+    background-color: #000;
+    color: #fff;
 } 
 .product{
     cursor: pointer;
 }
 .lightmode {
+    height: 100vh;
+    overflow-y: auto;
     background-color: #fff;
     color: #000;
 } 
 .darkmode{
+    height: 100vh;
+    overflow-y: auto;
     
     background-color: #000;
     color: #fff;
@@ -42,3 +57,9 @@ body{
 
 }
 
+.search{
+    margin-bottom: 10px;
+    margin-left: 80vw;
+    width: 15vw;
+
+}

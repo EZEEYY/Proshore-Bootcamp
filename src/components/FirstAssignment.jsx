@@ -5,12 +5,16 @@ function Data(){
     const [name , nameup] = React.useState()
     const [age, ageup] = React.useState()
     function handlesubmit(event){
-        event.preventDefault(); 
+        event.preventDefault();
+        if (!name || !name.trim() || !age || !age.trim()) { // check if name and age are defined and not just whitespace
+            return;
+        }       
         personup([...person,{name,age}])
         console.log(person)
         nameup('')
         ageup('')
         console.log(person)
+        
     }
     function filter(){
         const filteredperson = person.filter(per=>per.age>=30)
@@ -23,11 +27,11 @@ function Data(){
             <div>
             <div className='name'>
                 <h1>Name</h1>
-                <input type={Text} onChange={event => nameup(event.target.value)}></input>
+                <input type='text' onChange={event => nameup(event.target.value)}></input>
             </div>
             <div className='age'> 
                 <h1>Age</h1>
-                <input  onChange={event => ageup(event.target.value)}></input>
+                <input type='number' onChange={event => ageup(event.target.value)}></input>
             </div>
             <button type='submit'>ADD</button>
             </div>

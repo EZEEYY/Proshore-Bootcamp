@@ -1,7 +1,7 @@
 import './App.css';
 import React from 'react';
-import Data from './components/first';
-import Third from './components/third';
+import Data from './components/FirstAssignment';
+import Third from './components/ThridAssignment';
 import { Link, Route,Routes } from 'react-router-dom';
 import Home from './Home';
 import DarkMode from './components/DarkMode';
@@ -14,10 +14,10 @@ function App() {
           <li>
               <Link to='/'>Home</Link>
             <li>
-              <Link to='/first'>first</Link>
+              <Link to='/first'>FirstAssignment</Link>
             </li>
             <li>
-              <Link to='/third'>third</Link>
+              <Link to='/third'>ThridAssignment</Link>
             </li>
           <DarkMode/>
         </li>
